@@ -22,6 +22,15 @@ class LinkedList
     node
   end
 
+  def at(index)
+    current = @head
+    index.times do
+      current = current.next_node
+      throw 'index out of range' if current.nil?
+    end
+    current
+  end
+
   def prepend(value)
     node = Node.new(value)
 
