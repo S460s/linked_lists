@@ -18,4 +18,6 @@ p list.at(1).value
 
 p list.pop.value
 
+p list.contains? 61
+
 p list.to_s

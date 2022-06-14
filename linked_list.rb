@@ -34,10 +34,21 @@ class LinkedList
     end
   end
 
+  def contains?(value)
+    current = @head
+    @size.times do
+      return true if current.value == value
+
+      current = current.next_node
+    end
+    false
+  end
+
   def pop
     popped = @tail
     @tail = at(@size - 2)
     @tail.next_node = nil
+    @size -= 1
     popped
   end
 
