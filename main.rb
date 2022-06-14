@@ -9,15 +9,12 @@ list.append(6)
 list.append(9)
 list.append(10)
 
-p list.tail.value
+puts list
+puts list.at(0).value
 
-p "list: #{list}"
+puts list.contains? 6
+puts list.find(10).value
 
-p list.at(0).value
-p list.at(1).value
+list.pop
 
-p list.pop.value
-
-p list.contains? 61
-
-p list.to_s
+puts list

@@ -35,13 +35,11 @@ class LinkedList
   end
 
   def contains?(value)
-    current = @head
-    @size.times do
-      return true if current.value == value
+    find_by_value(value, false)
+  end
 
-      current = current.next_node
-    end
-    false
+  def find(value)
+    find_by_value(value, true)
   end
 
   def pop
@@ -79,6 +77,16 @@ class LinkedList
   end
 
   private
+
+  def find_by_value(value, like_find)
+    current = @head
+    @size.times do
+      return like_find ? current : true if current.value == value
+
+      current = current.next_node
+    end
+    like_find ? nil : false
+  end
 
   def handle_first_node(node)
     @head = node
