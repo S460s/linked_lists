@@ -24,11 +24,14 @@ class LinkedList
 
   def at(index)
     current = @head
-    index.times do
+    i = 0
+    loop do
+      return current if index == i
+
       current = current.next_node
       throw 'index out of range' if current.nil?
+      i += 1
     end
-    current
   end
 
   def prepend(value)
