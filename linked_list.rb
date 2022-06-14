@@ -34,6 +34,13 @@ class LinkedList
     end
   end
 
+  def pop
+    popped = @tail
+    @tail = at(@size - 2)
+    @tail.next_node = nil
+    popped
+  end
+
   def prepend(value)
     node = Node.new(value)
 
