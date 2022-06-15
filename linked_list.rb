@@ -34,6 +34,17 @@ class LinkedList
     end
   end
 
+  def insert_at(value, index)
+    return prepend(value) if index.zero?
+    return append(value) if index == @size
+
+    node = Node.new(value)
+    prev_node = at(index - 1)
+    node.next_node = prev_node.next_node
+    prev_node.next_node = node
+    node
+  end
+
   def contains?(value)
     find_by_value(value, false)
   end

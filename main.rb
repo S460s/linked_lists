@@ -18,3 +18,13 @@ puts list.find(10).value
 list.pop
 
 puts list
+puts list.size
+
+list.insert_at(0, 3)
+list.insert_at(2, 0)
+
+puts list
+
+list.insert_at(1111, 1)
+
+puts list
