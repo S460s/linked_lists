@@ -45,6 +45,18 @@ class LinkedList
     node
   end
 
+  def clear
+    initialize
+  end
+
+  def remove_at(index)
+    return pop if index == @size - 1
+    return @head = @head.next_node if index.zero?
+
+    prev_node = at(index - 1)
+    prev_node.next_node = prev_node.next_node.next_node
+  end
+
   def contains?(value)
     find_by_value(value, false)
   end
@@ -79,12 +91,14 @@ class LinkedList
     current = @head
     acc = ''
     loop do
+      break if current.nil?
+
       acc << "[#{current.value}] -> "
       break if current.next_node.nil?
 
       current = current.next_node
     end
-    acc + 'nil'
+    "#{acc}nil"
   end
 
   private
